@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name = "viewport" content = "width = device-width, initial-scale = 1">
+		<meta charset="utf-8">
+		<link rel = "stylesheet" 
+			href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src = "https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<title>Beer App</title>
+	</head>
+	
+	<body>
+		<!-- Main menu page -->
+		<div data-role = "page" id = "menu" data-theme="b">
+			<div data-role = "header">
+					<h1>Menu</h1>
+					<a href = "#recommend" class = "ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-star">Recommend</a>
+			</div>
+
+			<div data-role = "main" class = "ui-content">
+				<ul data-role = "listview" data-inset = "true">
+					<li>
+						<a href="#beer1-dialog">
+							<img src = "./images/beers/beer1.svg" alt="American Lager">
+							<h2>American Lager</h2>
+							<p>Transparent. Fresh and dry taste with a touch of sweetness</p>
+							<h1  class = "ui-li-aside">200 &#8381;</h1>
+							<p><em>4,7-6 % alc., 500 ml</em></p>
+							<p><progress max="100" value="80"></progress> 8 pints left</p>
+						</a>
+					</li>
+					<li>
+						<a href="#beer2-dialog">
+							<img src = "./images/beers/beer2.svg" alt="Doppelbock">
+							<h2>Doppelbock</h2>
+							<p>Strong</p>
+							<h1  class = "ui-li-aside">200 &#8381;</h1>
+							<p><em>7-12 % alc., 500 ml</em></p>
+							<p><progress max="100" value="100"></progress> 6 pints left</p>
+						</a>
+					</li>
+					<li>
+						<a href="#beer3-dialog">
+							<img src = "./images/beers/beer3.svg" alt="German Helles">
+							<h2>German Helles</h2>
+							<p>A creamy white foam, transparent, slightly sweet, with a malt flavor and aroma</p>
+							<h1  class = "ui-li-aside">200 &#8381;</h1>
+							<p><em>4,7-5,4 % alc., 500 ml</em></p>
+							<p><progress max="100" value="80"></progress> 10 pints left</p>
+						</a>
+					</li>
+					<li>
+						<a href="#beer4-dialog">
+							<img src = "./images/beers/beer4.svg" alt="German Schwarzbier">
+							<h2>German Schwarzbier</h2>
+							<p>Opaque, black colour with hints of chocolate or coffee flavours, bitter</p>
+							<h1  class = "ui-li-aside">200 &#8381;</h1>
+							<p><em>4.4–5.4 % alc., 500 ml</em></p>
+							<p><progress max="100" value="60"></progress> 6 pints left</p>
+						</a>
+					</li>
+					<li>
+						<a href="#beer5-dialog">
+							<img src = "./images/beers/beer5.svg" alt="Imperial Ipa">
+							<h2>Imperial Ipa</h2>
+							<p>Rich aroma and pleasant bitterness</p>
+							<h1  class = "ui-li-aside">200 &#8381;</h1>
+							<p><em>~7,5 % alc., 500 ml</em></p>
+							<p><progress max="100" value="0"></progress> 0 pints left</p>
+						</a>
+					</li>
+					<li>
+						<a href="#beer6-dialog">
+							<img src = "./images/beers/beer6.svg" alt="Vienna Lager">
+							<h2>Vienna Lager</h2>
+							<p>Rich yellow and stable foam, rich malt flavor and aroma of Viennese or Munich malt with hop notes.</p>
+							<h1  class = "ui-li-aside">200 &#8381;</h1>
+							<p><em>4,5-5,7 % alc., 500 ml</em></p>
+							<p><progress max="100" value="80"></progress> 8 pints left</p>
+						</a>
+					</li>
+					<li>
+						<a href="#beer7-dialog">
+							<img src = "./images/beers/beer7.svg" alt="English Brown Porter">
+							<h2>English Brown Porter</h2>
+							<p>A malt-sweet taste with hints of caramel and ripe fruits such as plums and/or raisins.</p>
+							<h1  class = "ui-li-aside">200 &#8381;</h1>
+							<p><em>2,8-4,2 % alc., 500 ml</em></p>
+							<p><progress max="100" value="80"></progress> 8 pints left</p>
+						</a>
+					</li>
+					<li>
+						<a href="#beer8-dialog">
+							<img src = "./images/beers/beer8.svg" alt="German Pilsner">
+							<h2>German Pilsner</h2>
+							<p>A very light, clear colour from pale to golden yellow, with varying levels of hop aroma and flavour</p>
+							<h1  class = "ui-li-aside">200 &#8381;</h1>
+							<p><em>4,5-5 % alc., 500 ml</em></p>
+							<p><progress max="100" value="80"></progress> 8 pints left</p>
+						</a>
+					</li>
+				</ul>
+			</div>
+
+			<div data-role = "footer" data-position="fixed">
+				<h1>Choose a drink</h1>
+			</div>
+		</div>
+
+		<!-- Pages for every signle beer -->
+		<div data-role = "page" id = "beer1-dialog"  data-theme="b">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>American Lager</h1>
+			</div>
+			<div data-role = "main" class = "ui-content">
+				<img src = "./images/beers/beer1.svg" style="width: 100%" alt="American Lager">
+				<p>Transparent. Fresh and dry taste with a touch of sweetness</p>
+				<h1>200 &#8381;</h1>
+				<p><em>4,7-6 % alc., 500 ml</em></p>
+				<p><progress max="100" value="80"></progress> 8 pints left</p>
+				<p><a href = "#payment-page" class = "ui-btn ui-corner-all ui-btn-icon-left ui-icon-shop">Order</a></p>
+			</div>
+		</div>
+		<div data-role = "page" id = "beer2-dialog" data-theme="b">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>Doppelbock</h1>
+			</div>
+			<div data-role = "main" class = "ui-content">
+				<img src = "./images/beers/beer2.svg" style="width: 100%" alt="Doppelbock">
+				<p>Strong</p>
+				<h1>200 &#8381;</h1>
+				<p><em>7-12 % alc., 500 ml</em></p>
+				<p><progress max="100" value="100"></progress> 6 pints left</p>
+				<p><a href = "#payment-page" class = "ui-btn ui-corner-all ui-btn-icon-left ui-icon-shop">Order</a></p>
+			</div>
+		</div>
+		<div data-role = "page" id = "beer3-dialog"  data-theme="b">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>German Helles</h1>
+			</div>
+			<div role = "main" class = "ui-content">
+				<img src = "./images/beers/beer3.svg" style="width: 100%" alt="German Helles">
+				<p>A creamy white foam, transparent, slightly sweet, with a malt flavor and aroma</p>
+				<h1>200 &#8381;</h1>
+				<p><em>4,7-5,4 % alc., 500 ml</em></p>
+				<p><progress max="100" value="80"></progress> 10 pints left</p>
+				<p><a href = "#payment-page" class = "ui-btn ui-corner-all ui-btn-icon-left ui-icon-shop">Order</a></p>
+			</div>
+		</div>
+		<div data-role = "page" id = "beer4-dialog"  data-theme="b">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>German Schwarzbier</h1>
+			</div>
+			<div role = "main" class = "ui-content">
+				<img src = "./images/beers/beer4.svg" style="width: 100%" alt="German Schwarzbier">
+				<p>Opaque, black colour with hints of chocolate or coffee flavours, bitter</p>
+				<h1>200 &#8381;</h1>
+				<p><em>4.4–5.4 % alc., 500 ml</em></p>
+				<p><progress max="100" value="60"></progress> 6 pints left</p>
+				<p><a href = "#payment-page" class = "ui-btn ui-corner-all ui-btn-icon-left ui-icon-shop">Order</a></p>
+			</div>
+		</div>
+		<div data-role = "page" id = "beer5-dialog"  data-theme="b">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>Imperial Ipa</h1>
+			</div>
+			<div role = "main" class = "ui-content">
+				<img src = "./images/beers/beer5.svg" style="width: 100%" alt="Imperial Ipa">
+				<p>Rich aroma and pleasant bitterness</p>
+				<h1  class = "ui-li-aside">200 &#8381;</h1>
+				<p><em>~7,5 % alc., 500 ml</em></p>
+				<p><progress max="100" value="0"></progress> 0 pints left</p>
+				<p><a href = "#payment-page" class = "ui-btn ui-corner-all ui-btn-icon-left ui-icon-shop">Order</a></p>
+			</div>
+		</div>
+		<div data-role = "page" id = "beer6-dialog"  data-theme="b">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>Vienna Lager</h1>
+			</div>
+			<div role = "main" class = "ui-content">
+				<img src = "./images/beers/beer6.svg" style="width: 100%" alt="Vienna Lager">
+				<p>Rich yellow and stable foam, rich malt flavor and aroma of Viennese or Munich malt with hop notes.</p>
+				<h1>200 &#8381;</h1>
+				<p><em>4,5-5,7 % alc., 500 ml</em></p>
+				<p><progress max="100" value="80"></progress> 8 pints left</p>
+				<p><a href = "#payment-page" class = "ui-btn ui-corner-all ui-btn-icon-left ui-icon-shop">Order</a></p>
+			</div>
+		</div>
+		<div data-role = "page" id = "beer7-dialog"  data-theme="b">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>English Brown Porter</h1>
+			</div>
+			<div role = "main" class = "ui-content">
+				<img src = "./images/beers/beer7.svg" style="width: 100%" alt="English Brown Porter">
+				<p>A malt-sweet taste with hints of caramel and ripe fruits such as plums and/or raisins.</p>
+				<h1  class = "ui-li-aside">200 &#8381;</h1>
+				<p><em>2,8-4,2 % alc., 500 ml</em></p>
+				<p><progress max="100" value="80"></progress> 8 pints left</p>
+				<p><a href = "#payment-page" class = "ui-btn ui-corner-all ui-btn-icon-left ui-icon-shop">Order</a></p>
+			</div>
+		</div>
+		<div data-role = "page" id = "beer8-dialog"  data-theme="b">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>German Pilsner</h1>
+			</div>
+			<div role = "main" class = "ui-content">
+				<img src = "./images/beers/beer8.svg" style="width: 100%" alt="German Pilsner">
+				<p>A very light, clear colour from pale to golden yellow, with varying levels of hop aroma and flavour</p>
+				<h1  class = "ui-li-aside">200 &#8381;</h1>
+				<p><em>4,5-5 % alc., 500 ml</em></p>
+				<p><progress max="100" value="80"></progress> 8 pints left</p>
+				<p><a href = "#payment-page" class = "ui-btn ui-corner-all ui-btn-icon-left ui-icon-shop">Order</a></p>
+			</div>
+		</div>
+
+		<!-- Page with an order number and awaiting time -->
+		<div data-role = "page" id = "order-number"  data-theme="b">
+			<div data-role = "header">
+				<h1>Order state</h1>
+			</div>
+			<div data-role = "main" class = "ui-content" style="text-align: center;">
+				<p>Your order number is</p>
+				<h1>35</h1>
+				<p>You've ordered</p>
+				<p><em><strong>American Lager</strong> 500 ml</em></p>
+				<p>Estimated time</p>
+				<h2>~5 min</h2>
+				<p><a href = "#menu" class = "ui-btn ui-corner-all ui-btn-icon-left ui-icon-check">Received</a></p>
+			</div>
+		</div>
+
+		<!-- Page with payment buttons -->
+		<div data-role = "page" id = "payment-page"  data-theme="b">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>Payment</h1>
+			</div>
+			<div data-role = "main" class = "ui-content" style="text-align: center;">
+				<h1>200 &#8381;</h1>
+				<p><a href = "#order-number" class = "ui-corner-all"><img src="./images/googlepay.png" alt="Google Pay"></a></p>
+				<p><a href = "#order-number" class = "ui-corner-all"><img src="./images/applepay.png" alt="Apple Pay"></a></p>
+			</div>
+		</div>
+
+		<!-- Page with a poll for recommendation -->
+		<div data-role = "page" id = "recommend"  data-theme="b">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>What do you like</h1>
+			</div>
+			<div data-role = "main" class = "ui-content">
+				<form method = "post" action="demo.php">
+					Choose a color
+					<label for = "radio1">
+						<input type = "radio" name = "color" id = "radio1" checked>Light
+					</label>
+					<label for = "radio2">
+						<input type = "radio" name = "color" id = "radio2">Dark
+					</label>
+					Choose a flavour
+					<label for = "checkbox1">
+						<input type = "checkbox" id = "checkbox1">1
+					</label>
+					
+					<label for = "checkbox2">
+						<input type = "checkbox" id = "checkbox2">2
+					</label>
+					
+					<label for = "checkbox3">
+						<input type = "checkbox" id = "checkbox3">3
+					</label>
+					
+					<label for = "checkbox4">
+						<input type = "checkbox" id = "checkbox4">4
+					</label>
+					
+					<label for = "checkbox5">
+						<input type = "checkbox" id = "checkbox5">5
+					</label>
+				</form>
+			</div>
+			<div data-role = "footer" data-position="fixed">
+				<a href = "#beer2-dialog" class = "ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-heart">I'm lucky</a>
+				<a href = "#beer1-dialog" class = "ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-heart">Suggest</a>
+			</div>
+		</div>
+	</body>
+</html>
