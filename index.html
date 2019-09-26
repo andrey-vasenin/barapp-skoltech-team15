@@ -3,10 +3,39 @@
 	<head>
 		<meta name = "viewport" content = "width = device-width, initial-scale = 1">
 		<meta charset="utf-8">
-		<link rel = "stylesheet" 
-			href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<script src = "https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script type="text/javascript">
+			function timer() {
+
+			}
+			$( document ).on( "pagecreate", "#order-number", function(event, data) {
+
+			});
+		</script>
+		<style type="text/css">
+		.rating {
+			unicode-bidi: bidi-override;
+			direction: rtl;
+			color: #CCCC00;
+			font-size: 14pt;
+			font-weight: bold;
+		}
+		.rating > span {
+			display: inline-block;
+			position: relative;
+			width: 1.1em;
+		}
+		.rating > span:hover:before,
+		.rating > span:hover ~ span:before {
+			content: "\2605";
+			position: absolute;
+		}
+		body {
+			background-color: #000000;
+		}
+		</style>
 		<title>Beer App</title>
 	</head>
 	
@@ -47,7 +76,7 @@
 							<p>A creamy white foam, transparent, slightly sweet, with a malt flavor and aroma</p>
 							<h1  class = "ui-li-aside">200 &#8381;</h1>
 							<p><em>4,7-5,4 % alc., 500 ml</em></p>
-							<p><progress max="100" value="80"></progress> 10 pints left</p>
+							<p><progress max="100" value="0"></progress> 0 pints left</p>
 						</a>
 					</li>
 					<li>
@@ -218,6 +247,7 @@
 		<div data-role = "page" id = "order-number"  data-theme="b">
 			<div data-role = "header">
 				<h1>Order state</h1>
+				<a href = "#feedback" class = "ui-btn ui-btn-right ui-btn-inline ui-corner-all ui-btn-icon-left ui-icon-star">Rate our bar</a>
 			</div>
 			<div data-role = "main" class = "ui-content" style="text-align: center;">
 				<p>Your order number is</p>
@@ -277,6 +307,31 @@
 			<div data-role = "footer">
 				<a href = "#beer2-dialog" class = "ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-heart">I'm lucky</a>
 				<a href = "#beer1-dialog" class = "ui-btn-right ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-heart">Suggest</a>
+			</div>
+		</div>
+
+				<!-- Page with a poll for recommendation -->
+		<div data-role = "page" id = "feedback"  data-theme="b" data-dialog="true" style="background: #000000;">
+			<div data-role = "header" data-add-back-btn="true">
+				<h1>Please rate our bar</h1>
+			</div>
+			<div data-role = "main" class = "ui-content" style="background: #000000;">
+				<form method = "post" action="#">
+					<label for="name">Enter your name</label>
+					<input type="text" name="name" id="text-basic" value="">
+					Rate the bar
+					<div class="rating">
+						<span>&star;</span><span>&star;</span><span>&star;</span><span>&star;</span><span>&star;</span>
+					</div>
+					Rate the bartender
+					<div class="rating">
+						<span>&star;</span><span>&star;</span><span>&star;</span><span>&star;</span><span>&star;</span>
+					</div>
+					<label for="textarea">Your comment<br>
+					<em>(e.g. suggest which beer you'd like to see in our menu)</em></label>
+					<textarea cols="40" rows="8" name="textarea" id="textarea"></textarea>
+					<input type="button" value="Send your feedback" data-icon="mail">
+				</form>
 			</div>
 		</div>
 	</body>

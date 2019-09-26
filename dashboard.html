@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta name = "viewport" content = "width = device-width, initial-scale = 1">
+		<meta charset="utf-8">
+		<link rel = "stylesheet" 
+			href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+		<script src = "https://code.jquery.com/jquery-1.11.3.min.js"></script>
+		<script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+		<title>Dashboard | Beer App</title>
+		<script>
+			$(function() {
+				$( "[data-role = 'navbar']" ).navbar();
+				$( "[data-role = 'header'], [data-role = 'footer']" ).toolbar();
+			});
+
+			// Update the the toolbar's contents
+			$( document ).on( "pagecontainerchange", function() {
+				// Each of the 4 pages in this example has a data-title attribute
+				// which value is equal to the nav button's text
+				// For e.g., on first page: <div data-role = "page" data-title = "Details">
+				var current = $( ".ui-page-active" ).jqmData( "title" );
+
+				// Change the heading
+				$( "[data-role = 'header'] h1" ).text( current );
+
+				// Remove active class
+				$( "[data-role = 'navbar'] a.ui-btn-active" ).removeClass( "ui-btn-active" );
+
+				// Add active class to current nav button
+				$( "[data-role = 'navbar'] a" ).each(function() {
+					if ( $( this ).text() === current ) {
+						$( this ).addClass( "ui-btn-active" );
+					}
+				});
+			});
+		</script>
+		<style type="text/css">
+		.rating {
+			unicode-bidi: bidi-override;
+			direction: rtl;
+			color: #CCCC00;
+			font-size: 14pt;
+			font-weight: bold;
+		}
+		.rating > span {
+			display: inline-block;
+			position: relative;
+			width: 1.1em;
+		}
+		.rating > span:hover:before,
+		.rating > span:hover ~ span:before {
+			content: "\2605";
+			position: absolute;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<div data-role = "header" data-position="fixed" style="overflow: hidden" data-theme="b">
+			<h1>Dashboard</h1>
+		</div>
+
+		<!-- Dashboard page -->
+		<div data-role = "page" id = "cashflow" data-theme="b" data-title = "Cashflow" class = "jqm-demos">
+			<div data-role = "main" class = "ui-content jqm-content jqm-fullwidth">
+				<ul data-role="listview">
+					<li>Today's income <strong class = "ui-li-aside">10 000 &#8381;</strong></li>
+					<li>This week's income <strong class = "ui-li-aside">70 000 &#8381;</strong></li>
+					<li>This month's income <strong class = "ui-li-aside">310 000 &#8381;</strong></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role = "page" id = "workload" data-theme="b" data-title = "Workload" class = "jqm-demos">
+			<div data-role = "main" class = "ui-content jqm-content jqm-fullwidth">
+				<canvas id="myChart"></canvas>
+				<script type="text/javascript">
+				var ctx = document.getElementById('myChart').getContext('2d');
+				var myBarChart = new Chart(ctx, {
+					type: 'bar',
+					data: {
+				        labels: ['10.00', '11.00', '12.00', '13.00', '14.00', '15.00', '16.00', '17.00', '18.00', '19.00', '20.00', '21.00', '22.00', '23.00', '00.00'],
+				        datasets: [{
+				            label: 'Number of visitors',
+				            data: [5, 8, 10, 20, 20, 5, 10, 7, 15, 16, 18, 30, 28, 18, 12],
+				            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+				            borderColor: 'rgba(75, 192, 192, 1)',
+				            borderWidth: 1
+				        }]
+				    },
+					options: {
+				        legend: {
+				            labels: {
+				                // This more specific font property overrides the global property
+				                fontColor: '#ffffff'
+				            },
+			        	},
+			    	},
+				});
+				</script>
+			</div>
+		</div>
+		<div data-role = "page" id = "purchase" data-theme="b" data-title = "Purchase" class = "jqm-demos">
+			<div data-role = "main" class = "ui-content jqm-content jqm-fullwidth">
+				<ul data-role="listview">
+					<li>
+							<img src = "./images/beers/beer5.svg" alt="Imperial Ipa">
+							<h2>Imperial Ipa</h2>
+					</li>
+					<li>
+							<img src = "./images/beers/beer3.svg" alt="German Helles">
+							<h2>German Helles</h2>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div data-role = "page" id = "feedback" data-theme="b" data-title = "Feedback" class = "jqm-demos">
+			<div data-role = "main" class = "ui-content jqm-content jqm-fullwidth">
+				<ul data-role="listview">
+					<li class="ui-grid-a">
+						<div class="ui-block-a">
+							<h1>Andrei</h1>
+							No more queues! Yeah!
+						</div>
+						<div class="ui-block-b">
+							<p>Bar</p>
+							<div class="rating">
+								<span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span>
+							</div>
+							<p>Bartender</p>
+							<div class="rating">
+								<span>&star;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span>
+							</div>
+						</div>
+					</li>
+					<li class="ui-grid-a">
+						<div class="ui-block-a">
+							<h1>Ilya</h1>
+							No Zhiguli beer in the pub
+						</div>
+						<div class="ui-block-b">
+							<p>Bar</p>
+							<div class="rating">
+								<span>&star;</span><span>&star;</span><span>&star;</span><span>&star;</span><span>&starf;</span>
+							</div>
+							<p>Bartender</p>
+							<div class="rating">
+								<span>&star;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span>
+							</div>
+						</div>
+					</li>
+					<li class="ui-grid-a">
+						<div class="ui-block-a">
+							<h1>Anna</h1>
+							Please add cider to the<br> menu
+						</div>
+						<div class="ui-block-b">
+							<p>Bar</p>
+							<div class="rating">
+								<span>&star;</span><span>&star;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span>
+							</div>
+							<p>Bartender</p>
+							<div class="rating">
+								<span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span>
+							</div>
+						</div>
+					</li>
+					<li class="ui-grid-a">
+						<div class="ui-block-a">
+							<h1>Artöm</h1>
+							Fast service!
+						</div>
+						<div class="ui-block-b">
+							<p>Bar</p>
+							<div class="rating">
+								<span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span>
+							</div>
+							<p>Bartender</p>
+							<div class="rating">
+								<span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span>
+							</div>
+						</div>
+					</li>
+					<li class="ui-grid-a">
+						<div class="ui-block-a">
+							<h1>Lyuba</h1>
+							Cool application
+						</div>
+						<div class="ui-block-b">
+							<p>Bar</p>
+							<div class="rating">
+								<span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span><span>&starf;</span>
+							</div>
+							<p>Bartender</p>
+							<div class="rating">
+								<span>&star;</span><span>&star;</span><span>&star;</span><span>&starf;</span><span>&starf;</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<div data-role = "footer" data-position = "fixed" data-theme = "b">
+			<div data-role = "navbar">
+				<ul>
+					<li><a href = "#cashflow" 
+					data-prefetch = "true" data-transition = "slide">Cashflow</a></li>
+					<li><a href = "#workload" data-prefetch = "true" 
+					data-transition = "slide">Workload</a></li>
+					<li><a href = "#purchase" data-prefetch = "true" 
+					data-transition = "slide">Purchase</a></li>
+					<li><a href = "#feedback" data-prefetch = "true" 
+					data-transition = "slide">Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
