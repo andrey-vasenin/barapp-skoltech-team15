@@ -6,12 +6,21 @@
 		<link rel = "stylesheet" href = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
 		<script src = "https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src = "https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+		<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+		<!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap-theme.min.css"> -->
+		<!-- <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script> -->
+		<!-- <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>  -->
+		<script src="js/jquery.progressTimer.js"></script>  
 		<script type="text/javascript">
+			function progress(percent, $element) {
+			    var progressBarWidth = percent * $element.width() / 100;
+			    $element.find('div').animate({ width: progressBarWidth }, 180000);//.html(percent + "% ");
+			}
 			function timer() {
 
 			}
 			$( document ).on( "pagecreate", "#order-number", function(event, data) {
-
+				progress(100, $('#progressBar'));
 			});
 		</script>
 		<style type="text/css">
@@ -34,6 +43,21 @@
 		}
 		body {
 			background-color: #000000;
+		}
+		#progressBar {
+		    width: 385px;
+		    height: 22px;
+		    border: 1px solid #111;
+		    background-color: #292929;
+		}
+
+		#progressBar div {
+		    height: 100%;
+		    color: #fff;
+		    text-align: right;
+		    line-height: 22px; /* same as #progressBar height if we want text middle aligned */
+		    width: 0;
+		    background-color: #F28E1C;
 		}
 		</style>
 		<title>Beer App</title>
@@ -255,7 +279,20 @@
 				<p>You've ordered</p>
 				<p><em><strong>American Lager</strong> 500 ml</em></p>
 				<p>Estimated time</p>
-				<h2>~5 min</h2>
+				<h2>~3 min</h2>
+				<div id="progressBar"><div></div></div>
+				<script type="text/javascript">
+					$("#progressTimer").progressTimer({
+					    timeLimit: 120,
+					    warningThreshold: 10,
+					    baseStyle: 'progress-bar-warning',
+					    warningStyle: 'progress-bar-danger',
+					    completeStyle: 'progress-bar-info',
+					    onFinish: function() {
+					        console.log("I'm done");
+					    }
+					});
+				</script>
 				<p><a href = "#menu" class = "ui-btn ui-corner-all ui-btn-icon-left ui-icon-check">Received</a></p>
 			</div>
 		</div>
